@@ -1,0 +1,37 @@
+---
+title: "Projeto Estatística Não Paramétrica"
+author: "Clevia Bento de Oliveira"
+date: "03/10/2021"
+output: ioslides_presentation
+---
+
+## Introdução | Análise de risco de crédito
+Uma organização deseja prever quem são os possíveis inadimplentes no produto de empréstimos ao consumidor. Eles têm dados sobre o comportamento histórico do cliente com base no que observaram. Portanto, quando adquirem novos clientes, eles desejam prever quem é mais arriscado e quem não é.  
+
+Neste projeto será analisado o banco de dados para obter informações para prever o risco de crédito com novos clientes.
+
+## Frequencia das variáveis
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+if(!require(dplyr)) install.packages("dplyr") 
+library(dplyr)
+if(!require(rstatix)) install.packages("rstatix") 
+library(rstatix)
+if(!require(psych)) install.packages("psych") 
+library(psych)
+if(!require(corrplot)) install.packages("corrplot") 
+library(corrplot)
+require(readr)
+require(MVN)
+require(funModeling)
+rm(list=ls(all=TRUE))
+
+Training_Data <- read_csv("C:/Users/Clevia/Documents/relatorio NP/Training Data.csv")
+attach(Training_Data)
+str(Training_Data)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+x1<- freq(Training_Data$married);x1
+```
